@@ -30,3 +30,10 @@ $ source devel/setup.bash
 * Run one of the controllers to control the quadrotor
 
 `$ rosrun cps_quadrotor teleop_pose_keyboard.py`
+
+## Configurations
+* In order to change the max xy velocity
+  * Go to ~/path-to-workspace/src/hector_quadrotor/hector_quadrotor_controllers/params
+  * Edit the file "controller.yaml"
+  * Change the value of "max_xy" on line 18
+

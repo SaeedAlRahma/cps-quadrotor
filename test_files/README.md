@@ -1,7 +1,7 @@
 # Test Files Format
 
 ## File Format
-* Name: <distance per move>_<date>-<time>.txt
+* Name: "distance per move"_"date"-"time".txt
 * Movements are separated by empty line (see example below)
 
 
