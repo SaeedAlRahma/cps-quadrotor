@@ -1,14 +1,14 @@
 # Test Files Format
 
 ## File Format
-Commands are separated by empty line
+* Name: <distance per move>_<date>-<time>.txt
+* Movements are separated by empty line (see example below)
+
 
 ## Test Format
-Line 1: Current position
-
-Line 2: Commanded position
-
-Lines 3 to empty: position as quadrotor moves from current position to commanded position
+* Line 1: Current position
+* Line 2: Commanded position
+* Lines 3 to empty-line: position as quadrotor moves from current position to commanded position
 
 ## Line Format
 Time(s) Position.x(m) Position.y(m) Position.z(m) Velocity.x(m/s) Velocity.y(m/s) Velocity.z(m/s)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import rospy
+import rospy, sys
 
 from std_msgs.msg import Header
 from geometry_msgs.msg import Pose, PoseStamped, Point
@@ -131,9 +131,6 @@ def getKey():
 	termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
 	return key
 
-dist_travel = 1
-turn = 1
-
 def vels(dist_travel,turn):
 	return "currently:\tdist_travel %s\tturn %s " % (dist_travel,turn)
 
@@ -170,19 +167,24 @@ if __name__=="__main__":
     count = 0
     status = 0
     isMoving = False
+    dist_travel = 1
+    turn = 1
+    if len(sys.argv) > 1:
+        dist_travel = int(sys.argv[1])
 
     now = datetime.datetime.now()
-    filename = "test_files/%d-%d-%d-%d-%d-%d.txt" %(now.year, now.month, now.day, now.hour, now.minute, now.second)
+    filename = "test_files/%d_%d-%d-%d-%d-%d-%d.txt" %(dist_travel, now.year, now.month, now.day, now.hour, now.minute, now.second)
     dataFile = open(CPS_DIR + filename,"w+")
     # dataFile.write('t(s) x(m) y(m) z(m) vx(m/s) vy(m/s) vz(m/s)\n')
 
     rospy.Subscriber('/ground_truth/state', Odometry, stateCb)
 
+    # Hover
+    time.sleep(1)
+    publishPoseCommand(pub, WORLD_FRAME, 0.0, 0.0, 1.0)
+
     print msg
     print vels(dist_travel,turn)
-
-    # Hover
-    publishPoseCommand(pub, WORLD_FRAME, 0.0, 0.0, 1.0)
 
     try:
         while(1):
