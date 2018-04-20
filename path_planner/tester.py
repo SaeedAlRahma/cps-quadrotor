@@ -1,5 +1,6 @@
 import re
 import path_planner as pp
+import path_drawer as pd
 
 # Read from text file
 p = []
@@ -49,3 +50,7 @@ while all(la_path[-1]):
         break
     la_path = la_path[0]
 print(labeled_path[::-1])
+
+
+# Draw environment to see if desired
+graphics = pd.Drawer(g.planes, coordinate_path[::-1])
