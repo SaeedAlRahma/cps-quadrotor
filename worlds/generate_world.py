@@ -9,13 +9,7 @@ if len(sys.argv) != 3:
 IN_FILE = sys.argv[1]
 OUT_FILE = sys.argv[2]
 
-infile = open(IN_FILE, 'r')
-if infile.mode != 'r':
-    print 'File does not exists. Make sure you are in the correct directory'
-    exit(0)
-outfile = open(OUT_FILE,"w+")
-
-prefix = \
+PREFIX = \
 """<?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
@@ -28,19 +22,20 @@ prefix = \
       <uri>model://ground_plane</uri>
     </include>
     <!-- Ground regions -->"""
-suffix = """
+SUFFIX = """
   </world>
 </sdf>
 """
 NAME = 0
-X = 1
-Y = 2
-RADIUS = 3
+RADIUS = 1
+LENGTH = 1
+X = 2
+Y = 3
 COLOR = 4
+YAW = 4
 
-outfile.write(prefix)
-for line in infile.readlines():
-    data = line.split()
+
+def getRegion(data):
     region = """
     <model name='region_%s'>
       <pose frame=''>%s %s 0.1 0 0 0</pose>
@@ -70,6 +65,60 @@ for line in infile.readlines():
       </link>
     </model>""" \
         %(data[NAME], data[X], data[Y], data[RADIUS], data[RADIUS], data[COLOR])
-    outfile.write(region)
-outfile.write(suffix)
+    return region
+
+
+def getObstacle(data):
+    obstacle = """
+    <model name='wall_%s'>
+    <pose frame=''>%s %s 1.0 0 0 %s</pose>
+    <link name='link'>
+    <collision name='collision'>
+      <geometry>
+        <box>
+          <size>0.05 %s 2</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='visual'>
+      <geometry>
+        <box>
+          <size>0.05 %s 2</size>
+        </box>
+      </geometry>
+      <material>
+        <script>
+          <name>Gazebo/Red</name>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+        </script>
+      </material>
+    </visual>
+    </link>
+    </model>""" \
+    %(data[NAME], data[X], data[Y], data[YAW], data[LENGTH], data[LENGTH])
+    return obstacle
+
+
+infile = open(IN_FILE, 'r')
+if infile.mode != 'r':
+    print 'File does not exists. Make sure you are in the correct directory'
+    exit(0)
+outfile = open(OUT_FILE,"w+")
+
+isObstacle = False
+
+outfile.write(PREFIX)
+for line in infile.readlines():
+    data = line.split()
+    if data == None or len(data)== 0:
+        isObstacle = True
+        continue
+
+    if not isObstacle:
+        object = getRegion(data)
+    else:
+        object = getObstacle(data)
+    outfile.write(object)
+
+outfile.write(SUFFIX)
 outfile.close()
