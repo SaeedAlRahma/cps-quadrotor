@@ -3,7 +3,7 @@
 ## Generate New Worlds
 * Run the following line in this directory
 
-`python generate_worlds.py [input-file] [output-file]`
+`$ python generate_worlds.py [input-file] [output-file]`
 
   * [input-file] should be input_files/[filename] formatted based on the description below
   * [output-file] should be [filename].world
