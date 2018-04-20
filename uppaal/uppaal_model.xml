@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<nta>
+   <declaration>chan ready0, ready1;</declaration>
+   <template>
+      <name/>
+      <declaration/>
+      <location/>
+      <init/>
+      <transition/>
+   </template>
+   <system/>
+   <queries/>
+</nta>
