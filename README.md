@@ -26,6 +26,7 @@ $ source devel/setup.bash
 * Launch the simulation using one of the launch files in the launch directory
 
 `$ roslaunch cps_quadrotor test.launch`
+
 `$ roslaunch cps_quadrotor env.launch world-name:=env1.world`
 
 * Run one of the controllers to control the quadrotor
