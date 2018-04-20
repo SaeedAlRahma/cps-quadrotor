@@ -1,0 +1,199 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- Ground regions -->
+    <model name='region_start'>
+      <pose frame=''>0.0 0.0 0.1 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.8</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.8</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='region_r0'>
+      <pose frame=''>1.0 1.0 0.1 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.4</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.4</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='region_r1'>
+      <pose frame=''>-2.5 1.0 0.1 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>1.4</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>1.4</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='region_r2'>
+      <pose frame=''>1.0 2.5 0.1 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.2</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.2</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='region_goal'>
+      <pose frame=''>0.0 3.0 0.1 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>0.2</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Green</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_00'>
+    <pose frame=''>-2.0 -2.0 1.0 0 0 1.0</pose>
+    <link name='link'>
+    <collision name='collision'>
+      <geometry>
+        <box>
+          <size>0.05 1.0 2</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='visual'>
+      <geometry>
+        <box>
+          <size>0.05 1.0 2</size>
+        </box>
+      </geometry>
+      <material>
+        <script>
+          <name>Gazebo/Red</name>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+        </script>
+      </material>
+    </visual>
+    </link>
+    </model>
+    <model name='wall_01'>
+    <pose frame=''>-4.5 -2.0 1.0 0 0 0.0</pose>
+    <link name='link'>
+    <collision name='collision'>
+      <geometry>
+        <box>
+          <size>0.05 1.5 2</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name='visual'>
+      <geometry>
+        <box>
+          <size>0.05 1.5 2</size>
+        </box>
+      </geometry>
+      <material>
+        <script>
+          <name>Gazebo/Red</name>
+          <uri>file://media/materials/scripts/gazebo.material</uri>
+        </script>
+      </material>
+    </visual>
+    </link>
+    </model>
+  </world>
+</sdf>

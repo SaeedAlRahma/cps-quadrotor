@@ -2,6 +2,7 @@
 
 <launch>
  <!-- World parameters -->
+  <arg name="world_name" default="env1.world"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
@@ -10,6 +11,7 @@
 
   <!-- Start Gazebo with a world running with the parameters above -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="/home/saeed/cps_ws/src/cps_quadrotor/worlds/$(arg world_name)"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
