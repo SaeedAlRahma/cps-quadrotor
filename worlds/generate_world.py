@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import sys
 
-if len(sys.argv) != 4:
-    print 'Wrong arguments! This script takes exactly 4 arguments'
+if len(sys.argv) != 3:
+    print 'Wrong arguments! This script takes exactly 2 arguments'
     print 'python generate_world.py [input-file] [output-file]'
     exit(0)
 
