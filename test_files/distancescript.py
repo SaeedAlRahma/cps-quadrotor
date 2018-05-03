@@ -113,20 +113,20 @@ def printTimes(times, filename):
 
 def addnoise(dists):
     noisyDists = []
-    for item in dists
-        if item <= 1.5 then noisyDists.append(item + NOISE1)
-        elif item <= 2.5 then noisyDists.append(item + NOISE2)
-        elif item <= 3.5 then noisyDists.append(item + NOISE3)
-        elif item <= 4.5 then noisyDists.append(item + NOISE4)
-        elif item <= 5.5 then noisyDists.append(item + NOISE5)
-        elif item <= 6.5 then noisyDists.append(item + NOISE6)
-        elif item <= 7.5 then noisyDists.append(item + NOISE7)
-        elif item <= 8.5 then noisyDists.append(item + NOISE8)
-        else noisyDists.append(item + NOISE10)
+    for item in dists:
+        if item <= 1.5: noisyDists.append(item + NOISE1)
+        elif item <= 2.5: noisyDists.append(item + NOISE2)
+        elif item <= 3.5: noisyDists.append(item + NOISE3)
+        elif item <= 4.5: noisyDists.append(item + NOISE4)
+        elif item <= 5.5: noisyDists.append(item + NOISE5)
+        elif item <= 6.5: noisyDists.append(item + NOISE6)
+        elif item <= 7.5: noisyDists.append(item + NOISE7)
+        elif item <= 8.5: noisyDists.append(item + NOISE8)
+        else: noisyDists.append(item + NOISE10)
 
 def maxTimes(centroidArr):
     maxTimeArr = []
-    for item in centroidArr
+    for item in centroidArr:
         dists = addnoise(item[2:4])
         times = (dists/SPEED) + STABLIZE_TIME
         maxTimeArr.append(item[0], max[times])
