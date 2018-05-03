@@ -123,13 +123,14 @@ def addnoise(dists):
         elif item <= 7.5: noisyDists.append(item + NOISE7)
         elif item <= 8.5: noisyDists.append(item + NOISE8)
         else: noisyDists.append(item + NOISE10)
+    return noisyDists
 
 def maxTimes(centroidArr):
     maxTimeArr = []
     for item in centroidArr:
         dists = addnoise(item[2:4])
-        times = (dists/SPEED) + STABLIZE_TIME
-        maxTimeArr.append(item[0], max[times])
+        times = [((n/SPEED) + STABLIZE_TIME) for n in dists]
+        maxTimeArr.append([item[0], max(times)])
     return maxTimeArr
 
 def calcEnterTime(centroidArr):
@@ -183,7 +184,7 @@ maxTimesArr = maxTimes(centroidDistArr)
 
 maxFile = open(filename + "_maxTimes", "w")
 for mline in maxTimesArr:
-    distFile.write("%s\n" % mline)
+    maxFile.write("%s\n" % mline)
 #maxTimes = list(map (getTimes, list(map (maxTimes, distanceArr))))
 
 #put in map
