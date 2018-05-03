@@ -1,0 +1,19 @@
+rA 0.4 4 5 Blue
+rB 0.4 7 3 Blue
+rC 0.4 9 3 Blue
+rD 0.4 4 5 Blue
+rE 0.4 8 9 Blue
+rF 0.4 10 7 Blue
+rG 0.4 3 12 Blue
+rH 0.4 10 13 Blue
+rI 0.4 12 11 Blue
+rJ 0.4 1 15 Blue
+rK 0.4 9 15 Blue
+rL 0.4 2 18 Blue
+rM 0.4 8 17 Blue
+rN 0.4 2 20 Blue
+rO 0.4 7 19 Blue
+
+00 2.24 8.0 5.5 1.0
+01 5.00 8.5 8.0 -0.5
+02 5.10 9.5 7.5 0.0
