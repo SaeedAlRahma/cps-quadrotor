@@ -13,8 +13,6 @@ def get_path_coordinates(path):
             break
         co_path = co_path[0]
     print(coordinate_path[::-1])
-    # Draw environment to see if desired, uncomment this to draw paths
-    #graphics = pd.Drawer(g.planes, coordinate_path[::-1])
     return (coordinate_path[::-1])
 
 
@@ -33,7 +31,7 @@ def get_path_labels(path):
 
 # Read from text file
 p = []
-filename = "./example1.txt"
+filename = "./enviro.txt"
 start_node = "A"
 end_node = "E"
 with open(filename, 'r') as file:
@@ -59,5 +57,7 @@ planner = pp.Path_Planner(g)
 make_path = lambda tup: (make_path(tup[1]), tup[0]) if tup else ()
 out = planner.dijkstra(start_node, end_node)
 path = make_path(out[1])
-get_path_coordinates(path)
-#get_path_labels(path)
+copath = get_path_coordinates(path)
+lapath = get_path_labels(path)
+# Draw environment to see if desired, uncomment this to draw paths
+graphics = pd.Drawer(g.planes, copath[::-1])
