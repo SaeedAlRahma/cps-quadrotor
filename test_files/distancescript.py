@@ -19,6 +19,18 @@ AB_INDEX = 0
 BC_INDEX = 1
 AC_INDEX = 2
 
+NOISE1  = 0.218755358604
+NOISE2  = 0.416135222849
+NOISE3  = 0.575114018097
+NOISE4  = 0.0565917003624
+NOISE5  = 0.124517371433
+NOISE6  = 0.910000809258
+NOISE7  = 1.67250197011
+NOISE8  = 0.515976111076
+NOISE10 =  0.31362093354
+
+STABLIZE_TIME = 2.86
+
 # Creates line vals given two points
 def getLine(x_i, y_i, x_f, y_f):
     points = [(x_i,y_i),(x_f,y_f)]
@@ -99,6 +111,26 @@ def printTimes(times, filename):
         dataFile.write("\n")
     dataFile.close()
 
+def addnoise(dists):
+    noisyDists = []
+    for item in dists:
+        if item <= 1.5: noisyDists.append(item + NOISE1)
+        elif item <= 2.5: noisyDists.append(item + NOISE2)
+        elif item <= 3.5: noisyDists.append(item + NOISE3)
+        elif item <= 4.5: noisyDists.append(item + NOISE4)
+        elif item <= 5.5: noisyDists.append(item + NOISE5)
+        elif item <= 6.5: noisyDists.append(item + NOISE6)
+        elif item <= 7.5: noisyDists.append(item + NOISE7)
+        elif item <= 8.5: noisyDists.append(item + NOISE8)
+        else: noisyDists.append(item + NOISE10)
+
+def maxTimes(centroidArr):
+    maxTimeArr = []
+    for item in centroidArr:
+        dists = addnoise(item[2:4])
+        times = (dists/SPEED) + STABLIZE_TIME
+        maxTimeArr.append(item[0], max[times])
+    return maxTimeArr
 
 def calcEnterTime(centroidArr):
     #[zone] [dist leaving ab    dist leaving bc     dist leaving ac]
@@ -146,24 +178,30 @@ for mline in minTimes:
 distFile = open(filename + "_dists", "w")
 for dline in centroidDistArr:
     distFile.write("%s\n" % dline)
+
+maxTimesArr = maxTimes(centroidDistArr)
+
+maxFile = open(filename + "_maxTimes", "w")
+for mline in maxTimesArr:
+    distFile.write("%s\n" % mline)
 #maxTimes = list(map (getTimes, list(map (maxTimes, distanceArr))))
 
 #put in map
-zoneDict = dict()
-timeDict = dict()
-for i in range(0, len(centroidDistArr)):
-    zoneDict[centroidDistArr[i][0]] = [centroidDistArr[i][2], centroidDistArr[i][3], centroidDistArr[i][4]]
-    timeDict[minTimes[i][0]] = [minTimes[i][1], minTimes[i][2], minTimes[i][3]]
-transitions = readTransitions("Transitions.txt")
-pathDistances = calcTransitionLengthsTimes(transitions, zoneDict)
-pathTimes = calcTransitionLengthsTimes(transitions, timeDict)
-printTimes(pathTimes, "TransitionTimes.txt")
-
-zoneTimes = calcEnterTime(centroidDistArr)
-
-datafile = open("TransitionThroughZone.txt", "w")
-for i in zoneTimes:
-    #myString = string.Formatter.format(" %.2f %.2f %.2f \n ", zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
-    yString = "%.2f %.2f %.2f" %(zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
-    datafile.write(str(i) +" "+ yString + "\n")
-datafile.close()
+# zoneDict = dict()
+# timeDict = dict()
+# for i in range(0, len(centroidDistArr)):
+#     zoneDict[centroidDistArr[i][0]] = [centroidDistArr[i][2], centroidDistArr[i][3], centroidDistArr[i][4]]
+#     timeDict[minTimes[i][0]] = [minTimes[i][1], minTimes[i][2], minTimes[i][3]]
+# transitions = readTransitions("Transitions.txt")
+# pathDistances = calcTransitionLengthsTimes(transitions, zoneDict)
+# pathTimes = calcTransitionLengthsTimes(transitions, timeDict)
+# printTimes(pathTimes, "TransitionTimes.txt")
+#
+# zoneTimes = calcEnterTime(centroidDistArr)
+#
+# datafile = open("TransitionThroughZone.txt", "w")
+# for i in zoneTimes:
+#     #myString = string.Formatter.format(" %.2f %.2f %.2f \n ", zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
+#     yString = "%.2f %.2f %.2f" %(zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
+#     datafile.write(str(i) +" "+ yString + "\n")
+# datafile.close()
