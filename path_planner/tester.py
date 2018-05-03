@@ -14,7 +14,7 @@ def get_path_coordinates(path):
         co_path = co_path[0]
     print(coordinate_path[::-1])
     # Draw environment to see if desired, uncomment this to draw paths
-    #graphics = pd.Drawer(g.planes, coordinate_path[::-1])
+    graphics = pd.Drawer(g.planes, coordinate_path[::-1])
     return (coordinate_path[::-1])
 
 
@@ -33,7 +33,7 @@ def get_path_labels(path):
 
 # Read from text file
 p = []
-filename = "./example1.txt"
+filename = "./enviro.txt"
 start_node = "A"
 end_node = "E"
 with open(filename, 'r') as file:
