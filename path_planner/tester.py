@@ -1,6 +1,20 @@
 import re
 import path_planner as pp
 import path_drawer as pd
+import argparse
+
+#check for input args
+parser = argparse.ArgumentParser(description='Path Planner')
+parser.add_argument('env', nargs='?')
+parser.add_argument('startnode', nargs='?')
+parser.add_argument('endnode', nargs='?')
+args = parser.parse_args()
+filename = "./enviro.txt" if args.env is None else args.env
+print ("Using file %s for environment's path planning" % filename)
+start_node = "A" if args.startnode is None else args.startnode
+print ("Using Plane %s as the starting location" % start_node)
+end_node = "O" if args.endnode is None else args.endnode
+print ("Using Plane %s as the goal location" % end_node)
 
 
 # printing out coordinates in readable list order as coordinates to send to controller
@@ -31,9 +45,6 @@ def get_path_labels(path):
 
 # Read from text file
 p = []
-filename = "./enviro.txt"
-start_node = "A"
-end_node = "E"
 with open(filename, 'r') as file:
     for line in file:
         raw_data = re.sub(r"[\n\t\s]*", "", line)
@@ -60,4 +71,4 @@ path = make_path(out[1])
 copath = get_path_coordinates(path)
 lapath = get_path_labels(path)
 # Draw environment to see if desired, uncomment this to draw paths
-graphics = pd.Drawer(g.planes, copath[::-1])
+pd.Drawer(g.planes, copath[::-1])

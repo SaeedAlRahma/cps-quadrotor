@@ -30,5 +30,8 @@ class Drawer():
             if ((p3 is not None and p4 is not None) and (p1,p2) is not path[0] and (p3,p4) is not path[-1]):
                 Line(Point(p1*SCREEN_WIDTH/max_x, SCREEN_HEIGHT - p2*SCREEN_HEIGHT/max_y), Point(p3*SCREEN_WIDTH/max_x, SCREEN_HEIGHT - p4*SCREEN_HEIGHT/max_y)).draw(win)
             p3, p4 = p1, p2
-        win.getMouse()
-        win.close()
+        try:
+            win.getMouse()
+            win.close()
+        except GraphicsError:
+            pass
