@@ -178,24 +178,30 @@ for mline in minTimes:
 distFile = open(filename + "_dists", "w")
 for dline in centroidDistArr:
     distFile.write("%s\n" % dline)
+
+maxTimesArr = maxTimes(centroidDistArr)
+
+maxFile = open(filename + "_maxTimes", "w")
+for mline in maxTimesArr:
+    distFile.write("%s\n" % mline)
 #maxTimes = list(map (getTimes, list(map (maxTimes, distanceArr))))
 
 #put in map
-zoneDict = dict()
-timeDict = dict()
-for i in range(0, len(centroidDistArr)):
-    zoneDict[centroidDistArr[i][0]] = [centroidDistArr[i][2], centroidDistArr[i][3], centroidDistArr[i][4]]
-    timeDict[minTimes[i][0]] = [minTimes[i][1], minTimes[i][2], minTimes[i][3]]
-transitions = readTransitions("Transitions.txt")
-pathDistances = calcTransitionLengthsTimes(transitions, zoneDict)
-pathTimes = calcTransitionLengthsTimes(transitions, timeDict)
-printTimes(pathTimes, "TransitionTimes.txt")
-
-zoneTimes = calcEnterTime(centroidDistArr)
-
-datafile = open("TransitionThroughZone.txt", "w")
-for i in zoneTimes:
-    #myString = string.Formatter.format(" %.2f %.2f %.2f \n ", zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
-    yString = "%.2f %.2f %.2f" %(zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
-    datafile.write(str(i) +" "+ yString + "\n")
-datafile.close()
+# zoneDict = dict()
+# timeDict = dict()
+# for i in range(0, len(centroidDistArr)):
+#     zoneDict[centroidDistArr[i][0]] = [centroidDistArr[i][2], centroidDistArr[i][3], centroidDistArr[i][4]]
+#     timeDict[minTimes[i][0]] = [minTimes[i][1], minTimes[i][2], minTimes[i][3]]
+# transitions = readTransitions("Transitions.txt")
+# pathDistances = calcTransitionLengthsTimes(transitions, zoneDict)
+# pathTimes = calcTransitionLengthsTimes(transitions, timeDict)
+# printTimes(pathTimes, "TransitionTimes.txt")
+#
+# zoneTimes = calcEnterTime(centroidDistArr)
+#
+# datafile = open("TransitionThroughZone.txt", "w")
+# for i in zoneTimes:
+#     #myString = string.Formatter.format(" %.2f %.2f %.2f \n ", zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
+#     yString = "%.2f %.2f %.2f" %(zoneTimes[i][0], zoneTimes[i][1], zoneTimes[i][2])
+#     datafile.write(str(i) +" "+ yString + "\n")
+# datafile.close()
