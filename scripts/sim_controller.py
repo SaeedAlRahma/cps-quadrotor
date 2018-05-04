@@ -18,8 +18,8 @@ CTRL-C to quit
 """
 
 # CONFIGURATIONS
-DIST_THRESHOLD = 0.01 # threshold for distance from target
-VEL_THRESHOLD = 0.001 # threshold for target velocity
+DIST_THRESHOLD = 0.1 # threshold for distance from target
+VEL_THRESHOLD = 0.01 # threshold for target velocity
 WRITE_PERIOD = 5 # write 1 message every WRITE_PERIOD
 
 # CONSTANTS
@@ -64,8 +64,9 @@ def stateCb(odo):
         if not count_period%WRITE_PERIOD:
             twist = odo.twist.twist
             twistLinear = twist.linear
-            dataFile.write('%d.%d %.2f %.2f %.2f %.2f %.2f %.2f\n'
-                            % (odo.header.stamp.secs, odo.header.stamp.nsecs/10000000,
+            odoTime = (odo.header.stamp.secs*1.0) + (odo.header.stamp.nsecs/1000000000.0)
+            dataFile.write('%.2f %.2f %.2f %.2f %.2f %.2f %.2f\n'
+                            % (odoTime,
                             position.x, position.y, position.z,
                             twistLinear.x, twistLinear.y, twistLinear.z))
             if isTargetReached(position, cmdPosition, twistLinear):

@@ -21,6 +21,12 @@ PREFIX = \
     <include>
       <uri>model://ground_plane</uri>
     </include>
+    <!-- Camera position -->
+    <gui>
+      <camera name="user_camera">
+        <pose>8.5 11.0 18.0 0.0 1.42 3.14</pose>
+      </camera>
+    </gui>
     <!-- Ground regions -->"""
 SUFFIX = """
   </world>

@@ -17,6 +17,8 @@ CTRL-C to quit
 """
 
 # CONFIGURATIONS
+PATH = [(4, 5), (4, 9), (8, 9), (10, 13), (9, 15), (8, 17), (7, 19)]
+PATHNAME = ['A', 'D', 'E', 'H', 'K', 'M', 'O']
 
 # CONSTANTS
 CMD_PUB = rospy.Publisher('/cps/path_planner', Point, queue_size = 1)
@@ -42,18 +44,21 @@ if __name__=="__main__":
     rospy.Subscriber('/cps/command_reached', Bool, ackCb)
 
     print 'Path Planning started...'
+    time.sleep(1)
 
     # Publish movement
-    # @TODO write proper code here
-    time.sleep(1)
-    cmd = Point()
-    cmd.x = 2.0
-    cmd.y = 1.0
-    cmd.z = 1.0
-    CMD_PUB.publish(cmd)
+    t0 = time.time()
+    for target in PATH:
+        cmd = Point()
+        cmd.x = target[0]
+        cmd.y = target[1]
+        cmd.z = 1.0
+        ack = False
+        CMD_PUB.publish(cmd)
+        while not ack and not rospy.is_shutdown():
+            time.sleep(0.5)
 
-    while not ack and not rospy.is_shutdown():
-        time.sleep(1)
-
+    print ''
+    print 'Total time:', time.time() - t0
     print ''
     print 'Done!'
