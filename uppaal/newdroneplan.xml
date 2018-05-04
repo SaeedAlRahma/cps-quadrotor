@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+clock gt, t;
+int x, y;
+bool a:=false;
+bool b:=false;
+bool c:=false;
+bool d:=false;
+bool e:=false;
+bool f:=false;
+bool g:=false;
+bool h:=false;
+bool i:=false;
+bool j:=false;
+bool k:=false;
+bool l:=false;
+bool m:=false;
+bool n:=false;
+bool o:=false;
+bool z:=false;</declaration>
+	<template>
+		<name x="5" y="5">Enviro</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-306" y="136">
+			<name x="-316" y="102">End</name>
+		</location>
+		<location id="id1" x="-224" y="-128">
+			<name x="-208" y="-144">J</name>
+			<label kind="invariant" x="-192" y="-144">t&lt;=5060</label>
+		</location>
+		<location id="id2" x="-280" y="-216">
+			<name x="-304" y="-224">L</name>
+			<label kind="invariant" x="-357" y="-212">t&lt;=5770</label>
+		</location>
+		<location id="id3" x="-224" y="-304">
+			<name x="-234" y="-334">N</name>
+			<label kind="invariant" x="-288" y="-336">t&lt;=5320</label>
+		</location>
+		<location id="id4" x="-128" y="-288">
+			<name x="-138" y="-318">O</name>
+			<label kind="invariant" x="-120" y="-320">t&lt;=5500</label>
+		</location>
+		<location id="id5" x="16" y="-288">
+			<name x="6" y="-318">M</name>
+			<label kind="invariant" x="24" y="-320">t&lt;=4010</label>
+		</location>
+		<location id="id6" x="8" y="-184">
+			<name x="24" y="-200">K</name>
+			<label kind="invariant" x="40" y="-200">t&lt;=4380</label>
+		</location>
+		<location id="id7" x="104" y="-32">
+			<name x="104" y="-64">I</name>
+			<label kind="invariant" x="112" y="-64">t&lt;=5480</label>
+		</location>
+		<location id="id8" x="-17" y="-76">
+			<name x="-1" y="-108">H</name>
+			<label kind="invariant" x="15" y="-108">t&lt;=5770</label>
+		</location>
+		<location id="id9" x="-212" y="-34">
+			<name x="-196" y="-58">G</name>
+			<label kind="invariant" x="-180" y="-58">t&lt;=5680</label>
+		</location>
+		<location id="id10" x="-232" y="64">
+			<name x="-256" y="40">D</name>
+			<label kind="invariant" x="-331" y="51">t&lt;=5630</label>
+		</location>
+		<location id="id11" x="-64" y="40">
+			<name x="-72" y="56">E</name>
+			<label kind="invariant" x="-56" y="56">t&lt;=5220</label>
+		</location>
+		<location id="id12" x="88" y="56">
+			<name x="104" y="40">F</name>
+			<label kind="invariant" x="120" y="40">t&lt;=5080</label>
+		</location>
+		<location id="id13" x="58" y="142">
+			<name x="72" y="144">C</name>
+			<label kind="invariant" x="88" y="144">t&lt;=5220</label>
+		</location>
+		<location id="id14" x="-32" y="192">
+			<name x="-56" y="208">B</name>
+			<label kind="invariant" x="-42" y="207">t&lt;=6120</label>
+		</location>
+		<location id="id15" x="-152" y="144">
+			<name x="-176" y="152">A</name>
+			<label kind="invariant" x="-232" y="152">t&lt;=6230</label>
+		</location>
+		<location id="id16" x="-352" y="112">
+			<name x="-376" y="80">START</name>
+		</location>
+		<init ref="id16"/>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-288" y="100">z:=true</label>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id10"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-136" y="56">t&gt;=2250</label>
+			<label kind="assignment" x="-128" y="72">t:=0,
+e:=true</label>
+			<nail x="-160" y="64"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-144" y="0">t&gt;=3390</label>
+			<label kind="assignment" x="-136" y="16">t:=0,
+d:=true</label>
+			<nail x="-152" y="40"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-160" y="88">t&gt;=4050</label>
+			<label kind="assignment" x="-152" y="104">t:=0,
+a:=true</label>
+			<nail x="-176" y="96"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id15"/>
+			<label kind="guard" x="-264" y="104">t&gt;=3270</label>
+			<label kind="assignment" x="-248" y="120">t:=0,
+d:=true</label>
+			<nail x="-208" y="120"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-288" y="-8">t&gt;=2220</label>
+			<label kind="assignment" x="-272" y="8">t:=0,
+d:=true</label>
+			<nail x="-232" y="8"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id10"/>
+			<label kind="guard" x="-192" y="-24">t&gt;=3450</label>
+			<label kind="assignment" x="-195" y="0">t:=0,
+g:=true</label>
+			<nail x="-192" y="0"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-287" y="-77">t&gt;=2680</label>
+			<label kind="assignment" x="-255" y="-93">t:=0,
+g:=true</label>
+			<nail x="-223" y="-77"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-184" y="-96">t&gt;=3330</label>
+			<label kind="assignment" x="-184" y="-80">t:=0,
+j:=true</label>
+			<nail x="-192" y="-80"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-320" y="-152">t&gt;=2470</label>
+			<label kind="assignment" x="-312" y="-168">t:=0,
+l:=true</label>
+			<nail x="-272" y="-152"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-224" y="-200">t&gt;=2680</label>
+			<label kind="assignment" x="-224" y="-184">t:=0,
+j:=true</label>
+			<nail x="-232" y="-176"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-320" y="-280">t&gt;=3020</label>
+			<label kind="assignment" x="-365" y="-280">t:=0,
+l:=true</label>
+			<nail x="-264" y="-264"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-232" y="-248">t&gt;=2160</label>
+			<label kind="assignment" x="-238" y="-280">t:=0,
+n:=true</label>
+			<nail x="-232" y="-248"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-194" y="-288">t&gt;=3100</label>
+			<label kind="assignment" x="-178" y="-272">t:=0,
+n:=true</label>
+			<nail x="-178" y="-288"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-200" y="-344">t&gt;=3620</label>
+			<label kind="assignment" x="-200" y="-328">t:=0,
+o:=true</label>
+			<nail x="-160" y="-312"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-104" y="-272">t&gt;=3400</label>
+			<label kind="assignment" x="-104" y="-256">t:=0,
+o:=true</label>
+			<nail x="-80" y="-272"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id4"/>
+			<label kind="guard" x="-64" y="-336">t&gt;=1840</label>
+			<label kind="assignment" x="-56" y="-320">t:=0,
+m:=true</label>
+			<nail x="-64" y="-304"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-64" y="-248">t&gt;=1880</label>
+			<label kind="assignment" x="-40" y="-232">t:=0,
+m:=true</label>
+			<nail x="-8" y="-240"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="guard" x="32" y="-256">t&gt;=2260</label>
+			<label kind="assignment" x="32" y="-240">t:=0,
+k:=true</label>
+			<nail x="24" y="-240"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-72" y="-176">t&gt;=1960</label>
+			<label kind="assignment" x="-56" y="-160">t:=0,
+k:=true</label>
+			<nail x="-24" y="-144"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id6"/>
+			<label kind="guard" x="24" y="-160">t&gt;=3190</label>
+			<label kind="assignment" x="24" y="-144">t:=0,
+h:=true</label>
+			<nail x="8" y="-136"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="guard" x="64" y="-88">t&gt;=3010</label>
+			<label kind="assignment" x="51" y="-85">t:=0,
+h:=true</label>
+			<nail x="40" y="-72"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-8" y="-40">t&gt;=2650</label>
+			<label kind="assignment" x="8" y="-25">t:=0,
+i:=true</label>
+			<nail x="32" y="-40"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-104" y="-48">t&gt;=3730</label>
+			<label kind="assignment" x="-104" y="-32">t:=0,
+h:=true</label>
+			<nail x="-56" y="-24"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-40" y="8">t&gt;=2830</label>
+			<label kind="assignment" x="-40" y="24">t:=0,
+e:=true</label>
+			<nail x="-24" y="-8"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id12"/>
+			<label kind="guard" x="24" y="-8">t&gt;=2990</label>
+			<label kind="assignment" x="119" y="8">t:=0,
+i:=true</label>
+			<nail x="72" y="24"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id7"/>
+			<label kind="guard" x="120" y="-8">t&gt;=2940</label>
+			<label kind="assignment" x="32" y="8">t:=0,
+f:=true</label>
+			<nail x="112" y="16"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="guard" x="0" y="72">t&gt;=2890</label>
+			<label kind="assignment" x="24" y="88">t:=0,
+f:=true</label>
+			<nail x="56" y="80"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id12"/>
+			<label kind="guard" x="96" y="88">t&gt;=2620</label>
+			<label kind="assignment" x="104" y="104">t:=0,
+c:=true</label>
+			<nail x="88" y="104"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="guard" x="-40" y="120">t&gt;=2160</label>
+			<label kind="assignment" x="-40" y="136">t:=0,
+c:=true</label>
+			<nail x="0" y="144"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+			<label kind="guard" x="24" y="176">t&gt;=2270</label>
+			<label kind="assignment" x="24" y="192">t:=0,
+b:=true</label>
+			<nail x="24" y="176"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="guard" x="-112" y="128">t&gt;=2180</label>
+			<label kind="assignment" x="-88" y="144">t:=0,
+b:=true</label>
+			<nail x="-88" y="160"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id14"/>
+			<label kind="guard" x="-144" y="184">t&gt;=4400</label>
+			<label kind="assignment" x="-128" y="200">t:=0,
+a:=true</label>
+			<nail x="-96" y="192"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Enviro();
+
+// List one or more processes to be composed into a system.
+system Process;</system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt; y ==5 &amp;&amp; a == 1
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; a &amp;&amp; z &amp;&amp; gt &lt;= 8000
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;  d &amp;&amp; g &amp;&amp;  j  &amp;&amp; k &amp;&amp; l &amp;&amp; m &amp;&amp; n &amp;&amp; o &amp;&amp; h &amp;&amp; e &amp;&amp; gt &lt;=26000
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt;  d &amp;&amp; g &amp;&amp;  j  &amp;&amp; k &amp;&amp; l &amp;&amp; m &amp;&amp; n &amp;&amp; o &amp;&amp; h &amp;&amp; e &amp;&amp; gt &lt;=10000
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; a &amp;&amp; b &amp;&amp; c &amp;&amp; d &amp;&amp; e &amp;&amp; f &amp;&amp; g &amp;&amp; h &amp;&amp; i &amp;&amp; j &amp;&amp; k &amp;&amp;  l &amp;&amp; m &amp;&amp; n &amp;&amp; o &amp;&amp; gt &lt;=40000
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; a &amp;&amp; b &amp;&amp; c &amp;&amp; d &amp;&amp; e &amp;&amp; f &amp;&amp; g &amp;&amp; h &amp;&amp; i &amp;&amp; j &amp;&amp; k &amp;&amp;  l &amp;&amp; m &amp;&amp; n &amp;&amp; o &amp;&amp; gt &lt;=43860
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; a &amp;&amp; b &amp;&amp; c &amp;&amp; d &amp;&amp; e &amp;&amp; f &amp;&amp; g &amp;&amp; h &amp;&amp; i &amp;&amp; j &amp;&amp; k &amp;&amp;  l &amp;&amp; m &amp;&amp; n &amp;&amp; o &amp;&amp; z&amp;&amp;gt &lt;=43860
+			</formula>
+			<comment>
+			</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; y == 5
+
+
+			</formula>
+			<comment>
+			</comment>
+		</query>
+	</queries>
+</nta>
